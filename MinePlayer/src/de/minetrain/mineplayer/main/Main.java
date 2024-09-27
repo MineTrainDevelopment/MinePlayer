@@ -1,9 +1,5 @@
 package de.minetrain.mineplayer.main;
 
-import java.io.IOException;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.slf4j.Logger;
@@ -24,24 +20,26 @@ public class Main {
 		eclipseStore = new EclipseStore();
 
 //		EclipseStore.getStoreRoot().setRootMusicFolderPath("C:/Users/justi/Desktop/Neuer Ordner");
-		EclipseStore.getStoreRoot().setRootMusicFolderPath("C:/Users/justi/Videos/4K Video Downloader");
+//		EclipseStore.getStoreRoot().setRootMusicFolderPath("C:/Users/justi/Videos/4K Video Downloader");
+		EclipseStore.getStoreRoot().setRootMusicFolderPath("C:/");
 		
-		String rootFolder = EclipseStore.getStoreRoot().getRootMusicFolderPath();
-		System.err.println(rootFolder);
-		
-		if(rootFolder == null){
+		System.err.println(EclipseStore.getStoreRoot().getRootMusicFolderPath());
+		if(EclipseStore.getStoreRoot().getRootMusicFolderPath() == null){
 			System.exit(0);
 			return;
 		}
 		
 		
-		new RootMusicFolder().load(Paths.get(EclipseStore.getStoreRoot().getRootMusicFolderPath()));
-
+		RootMusicFolder rootMusicFolder = new RootMusicFolder(Paths.get(EclipseStore.getStoreRoot().getRootMusicFolderPath()));
+		System.err.println("---");
+		rootMusicFolder.getSubfolders().forEach(System.out::println);
+		
 		
 		
 		
 		
 		System.exit(0);
 	}
+	
 	
 }

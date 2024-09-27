@@ -5,8 +5,8 @@ import org.eclipse.serializer.persistence.types.Storer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MetaData {
-	private static final Logger logger = LoggerFactory.getLogger(MetaData.class);
+public class ProgramData {
+	private static final Logger logger = LoggerFactory.getLogger(ProgramData.class);
 	private String rootMusicFolderPath;
 	public transient Persister persister;
 	

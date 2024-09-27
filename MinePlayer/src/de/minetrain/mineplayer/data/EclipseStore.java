@@ -8,14 +8,14 @@ import org.eclipse.store.storage.embedded.types.EmbeddedStorageManager;
 
 public class EclipseStore {
 	private static EmbeddedStorageManager storageManager;
-	private static MetaData root;
+	private static ProgramData root;
 	
 	public EclipseStore() {
 		storageManager = EmbeddedStorage.start(Path.of(System.getProperty("user.home"), "appdata", "locallow", "MineTrainDev", "MinePlayer", "saved", "metadata"));
 		root = getStoreRoot();
 		
 		if(root == null){
-			root = new MetaData();
+			root = new ProgramData();
 			
 			storageManager.setRoot(root);
 			storageManager.storeRoot();
@@ -24,8 +24,8 @@ public class EclipseStore {
 		
 	}
 
-	public static MetaData getStoreRoot() {
-		return (MetaData) storageManager.root();
+	public static ProgramData getStoreRoot() {
+		return (ProgramData) storageManager.root();
 	}
 
 	/**
